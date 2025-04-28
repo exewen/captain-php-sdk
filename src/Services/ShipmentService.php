@@ -21,7 +21,8 @@ class ShipmentService
 
     public function getShipments(array $params, array $header)
     {
-        return $this->httpClient->get($this->driver, $this->getShipmentsUrl, $params, $header);
+        $response = $this->httpClient->get($this->driver, $this->getShipmentsUrl, $params, $header);
+        return $response->getBody()->getContents();
     }
 
 
